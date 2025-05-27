@@ -1,0 +1,212 @@
+/* General body styles */
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(135deg, #e4e3ad, #faf8c4);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+/* Root styles for color scheme */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+/* Container styles */
+.joker-container {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  opacity: 1; /* Ensure it's visible by default */
+  transform: translateX(0); /* Default position */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Slide-in animation */
+.joker-container.slide-in {
+  animation: slideIn 0.5s ease-in-out forwards; /* Trigger slide-in animation */
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* End in the center */
+    opacity: 1;
+  }
+}
+/* FunMe Logo Styles */
+.funme-logo {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: yellow;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  animation: logoBounce 1.5s infinite ease-in-out;
+  cursor: pointer;
+}
+
+.funme-logo span {
+  color: orange;
+  font-size: 3.5rem;
+  display: inline-block;
+  animation: mebounce 2s infinite ease-in-out;
+}
+
+@keyframes logoBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes mebounce {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* Joke setup styles */
+.joke-setup {
+  font-size: 1.5rem;
+  color: #ff6f61;
+  margin-bottom: 10px;
+}
+
+/* Joke punchline styles */
+.joke-punch-line {
+  font-size: 1.5rem;
+  color: #6a67ce;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Joke paragraph styles */
+.joke-para {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Bottom section styles */
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.laughing-emojis {
+  font-size: 4rem; /* Double the size */
+  margin-bottom: 10px;
+  animation: bounce 0.5s ease-in-out infinite;
+}
+
+.joke-btn {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.joke-btn:hover {
+  background-color: #ff9a9e;
+  transform: scale(1.1);
+}
+
+.joke-btn:active {
+  background-color: #ff6f61;
+  transform: scale(0.95);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.laughing-emojis {
+  font-size: 4rem; /* Double the size (previously 2rem) */
+  margin-top: 10px;
+  animation: bounce 0.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Category buttons container */
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Individual category button */
+.category-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff6f61;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.category-btn:hover {
+  background-color: #ff9a9e;
+  transform: scale(1.1);
+}
+
+.category-btn.active {
+  background-color: #6a67ce;
+  color: #fff;
+  font-weight: bold;
+}
