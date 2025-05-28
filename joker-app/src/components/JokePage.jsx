@@ -34,14 +34,17 @@ const JokePage = () => {
       }
       const result = await response.json();
 
-      // Handle different API responses
       if (category === "dad") {
         setJoke({ setup: result.joke, punchline: "" });
       } else if (category === "quotes") {
-        // Ensure the "quotes" API response is handled correctly
         setJoke({
           setup: result.content || "No quote available.",
           punchline: result.author ? `${result.author}` : "",
+        });
+      } else if (category === "programming") {
+        setJoke({
+          setup: result.setup,
+          punchline: result.delivery,
         });
       } else {
         setJoke(result);
@@ -50,7 +53,6 @@ const JokePage = () => {
       // Randomly select an emoji set
       const randomEmojiIndex = Math.floor(Math.random() * emojiSets.length);
       setEmojiSet(emojiSets[randomEmojiIndex]);
-
     } catch (error) {
       console.error("Error fetching joke:", error);
 
@@ -58,7 +60,6 @@ const JokePage = () => {
         setup: "Oops!",
         punchline: "Something went wrong. Please try again!",
       });
-      
     } finally {
       setIsLoading(false); // Ensure loading state is reset
     }
